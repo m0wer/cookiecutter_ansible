@@ -1,0 +1,17 @@
+{
+    "project_name": "",
+    "project_type": ["role", "playbook"],
+    "molecule_directory": "molecule",
+    "dependency_name": "galaxy",
+    "dependency_enabled": "false",
+    "driver_name": ["docker", "vagrant"],
+    "provider_name": "virtualbox",
+    "lint_name": "yamllint",
+    "static_ip": "172.16.100.12",
+    "provisioner_name": "ansible",
+    "provisioner_lint_name": "ansible-lint",
+    "scenario_name": "default",
+    "verifier_name": "tesinfra",
+    "verifier_directory": "tests",
+    "verifier_lint_name": "flake8"
+}

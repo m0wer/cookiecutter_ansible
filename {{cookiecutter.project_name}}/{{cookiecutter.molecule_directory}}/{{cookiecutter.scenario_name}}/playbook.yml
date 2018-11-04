@@ -1,0 +1,9 @@
+{% if cookiecutter.project_type == 'role' %}
+{% raw -%}
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: {{ cookiecutter.project_name }}
+{%- endraw %}
+{% endif %}

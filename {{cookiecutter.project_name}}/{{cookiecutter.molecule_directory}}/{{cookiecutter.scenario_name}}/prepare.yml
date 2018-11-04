@@ -1,0 +1,20 @@
+---
+{% if cookiecutter.driver_name == 'docker' %}
+{% raw -%}
+- name: Prepare
+  hosts: all
+  gather_facts: False
+  tasks: []
+{%- endraw %}
+{% elif cookiecutter.driver_name == 'vagrant' %}
+{% raw -%}
+- name: Prepare
+  hosts: all
+  gather_facts: False
+  tasks:
+    - name: Install python for Ansible
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      become: True
+      changed_when: False
+{%- endraw %}
+{% endif %}

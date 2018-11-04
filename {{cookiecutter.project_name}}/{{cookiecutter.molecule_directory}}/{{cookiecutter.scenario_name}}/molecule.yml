@@ -1,0 +1,65 @@
+---
+dependency:
+  name: {{ cookiecutter.dependency_name }}
+  enabled: {{ cookiecutter.dependency_enabled }}
+driver:
+  name: {{ cookiecutter.driver_name }}
+{%- if cookiecutter.driver_name == 'vagrant' %}
+  provider:
+    name: virtualbox
+{%- endif %}
+lint:
+  name: {{ cookiecutter.lint_name }}
+platforms:
+{%- if cookiecutter.driver_name == 'docker' %}
+- name: stretch
+    image: library/debian:stretch
+{%- elif cookiecutter.driver_name == 'ec2' %}
+  - name: instance
+    image: ami-a5b196c0
+    instance_type: t2.micro
+    vpc_subnet_id: subnet-6456fd1f
+{%- elif cookiecutter.driver_name == 'gce' %}
+  - name: instance
+    zone: us-west1-a
+    machine_type: f1-micro
+    image: debian-8
+{%- elif cookiecutter.driver_name == 'lxc' %}
+  - name: instance
+{%- elif cookiecutter.driver_name == 'lxd' %}
+  - name: instance
+{%- elif cookiecutter.driver_name == 'openstack' %}
+  - name: instance
+    image: Ubuntu-16.04
+    flavor: NO-Nano
+{%- elif cookiecutter.driver_name == 'vagrant' %}
+- name: stretch
+    box: debian/stretch64
+    interfaces:
+      - network_name: private_network
+        auto_config: true
+        ip: {{ cookiecutter.static_ip }}
+        type: static
+{%- endif %}
+provisioner:
+  name: {{ cookiecutter.provisioner_name }}
+  {%- if cookiecutter.project_type == 'playbook' %}
+  playbooks:
+    converge: ../../full.yml
+  options:
+    become: true
+  env:
+    ANSIBLE_ROLES_PATH: ${ANSIBLE_ROLES_PATH:-../../../../roles}
+  {%- endif %}
+  lint:
+    name: {{ cookiecutter.provisioner_lint_name }}
+scenario:
+  name: {{ cookiecutter.scenario_name }}
+verifier:
+  name: {{ cookiecutter.verifier_name }}
+{%- if cookiecutter.driver_name == 'vagrant' %}
+  options:
+    sudo: true
+{%- endif %}
+  lint:
+    name: {{ cookiecutter.verifier_lint_name }}
