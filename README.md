@@ -4,6 +4,8 @@
 [Ansible](https://www.ansible.com/) roles or playbooks. Including
 [Molecule](https://github.com/ansible/molecule) for testing.
 
+Uses **debian stretch** by default for testing.
+
 ## Compatibility
 
 The following setups are supported:
