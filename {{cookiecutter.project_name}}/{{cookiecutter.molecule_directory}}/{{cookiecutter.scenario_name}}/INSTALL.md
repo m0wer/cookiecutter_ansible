@@ -1,5 +1,4 @@
-{% if cookiecutter.driver_name == 'docker' %}
-{% raw -%}
+{% if cookiecutter.driver_name == 'docker' %}{% raw -%}
 # Install
 
 ## Requirements
@@ -12,9 +11,7 @@
 ```bash
 sudo pip install docker-py
 ```
-{%- endraw %}
-{% elif cookiecutter.driver_name == 'vagrant' %}
-{% raw -%}
+{%- endraw %}{% elif cookiecutter.driver_name == 'vagrant' %}{% raw -%}
 # Install
 
 ## Requirements
@@ -28,5 +25,4 @@ sudo pip install docker-py
 ```
 sudo pip install python-vagrant
 ```
-{%- endraw %}
-{% endif %}
+{%- endraw %}{% endif %}

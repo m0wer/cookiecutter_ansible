@@ -1,6 +1,6 @@
 ---
-{% if cookiecutter.driver_name == 'docker' %}
-{% raw -%}
+
+{% if cookiecutter.driver_name == 'docker' %}{% raw -%}
 - name: Destroy
   hosts: localhost
   connection: local
@@ -16,9 +16,7 @@
         state: absent
         force_kill: "{{ item.force_kill | default(True) }}"
       with_items: "{{ molecule_yml.platforms }}"
-{%- endraw %}
-{% elif cookiecutter.driver_name == 'vagrant' %}
-{% raw %}
+{%- endraw %}{% elif cookiecutter.driver_name == 'vagrant' %}{% raw %}
 - name: Destroy
   hosts: localhost
   connection: local
@@ -53,5 +51,4 @@
         content: "{{ instance_conf | to_json | from_json | molecule_to_yaml | molecule_header }}"
         dest: "{{ molecule_instance_config }}"
       when: server.changed | bool
-{%- endraw %}
-{% endif %}
+{%- endraw %}{% endif %}
