@@ -1,8 +1,8 @@
 # Ansible cookiecutter template
 
-[cookiecutter](https://github.com/audreyr/cookiecutter) template for ansible
-roles or playbooks. Including [molecule](https://github.com/ansible/molecule)
-for testing.
+[Cookiecutter](https://github.com/audreyr/cookiecutter) template for
+[Ansible](https://www.ansible.com/) roles or playbooks. Including
+[Molecule](https://github.com/ansible/molecule) for testing.
 
 ## Compatibility
 
