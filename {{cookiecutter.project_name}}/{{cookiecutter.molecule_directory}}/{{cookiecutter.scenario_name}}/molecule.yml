@@ -12,7 +12,7 @@ lint:
   name: {{ cookiecutter.lint_name }}
 platforms:
 {%- if cookiecutter.driver_name == 'docker' %}
-- name: stretch
+  - name: stretch
     image: library/debian:stretch
 {%- elif cookiecutter.driver_name == 'ec2' %}
   - name: instance
