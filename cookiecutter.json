@@ -11,7 +11,7 @@
     "provisioner_name": "ansible",
     "provisioner_lint_name": "ansible-lint",
     "scenario_name": "default",
-    "verifier_name": "tesinfra",
+    "verifier_name": "testinfra",
     "verifier_directory": "tests",
     "verifier_lint_name": "flake8"
 }
