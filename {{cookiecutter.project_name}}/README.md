@@ -2,6 +2,10 @@
 
 A brief description of the project goes here.
 
+## Compatibility
+
+Compatible GNU/Linux distributions and version. On which distros is it tested?
+
 ## Requirements
 
 Any pre-requisites that may not be covered by Ansible itself or the project
@@ -24,7 +28,6 @@ that may need to be set for other roles, or variables that are used from other
 roles.
 
 {% if cookiecutter.project_type == 'role' %}
-{% raw -%}
 ## Example Playbook
 
 ```yaml
@@ -33,7 +36,6 @@ roles.
   roles:
     - role: {{ cookiecutter.project_name }}
 ```
-{%- endraw %}
 {% endif %}
 
 ## Testing
