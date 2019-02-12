@@ -7,7 +7,8 @@ PROJECT_TYPE = '{{ cookiecutter.project_type }}'
 paths_to_delete_if_playbook = ['defaults',
         'tasks',
         '{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/playbook.yml']
-paths_to_delete_if_role = ['group_vars']
+paths_to_delete_if_role = ['group_vars',
+        'full.yml']
 
 if PROJECT_TYPE == 'role':
     paths_to_delete = paths_to_delete_if_role
