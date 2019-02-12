@@ -33,7 +33,7 @@ platforms:
     image: Ubuntu-16.04
     flavor: NO-Nano
 {%- elif cookiecutter.driver_name == 'vagrant' %}
-- name: stretch
+  - name: stretch
     box: debian/stretch64
     interfaces:
       - network_name: private_network
