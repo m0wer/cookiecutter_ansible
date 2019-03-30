@@ -1,8 +1,8 @@
 # Ansible cookiecutter template
 
 [Cookiecutter](https://github.com/audreyr/cookiecutter) template for
-[Ansible](https://www.ansible.com/) roles or playbooks. Including
-[Molecule](https://github.com/ansible/molecule) for testing.
+[ansible](https://www.ansible.com/) roles or playbooks. Including
+[molecule](https://github.com/ansible/molecule) for testing.
 
 Uses **debian stretch** by default for testing.
 
@@ -53,4 +53,4 @@ Following modifications: GPLv3
 
 ## Author Information
 
-m0wer *at* autistici *dot* org
+m0wer (at) autistici.org
