@@ -5,10 +5,11 @@ import shutil
 PROJECT_TYPE = '{{ cookiecutter.project_type }}'
 
 paths_to_delete_if_playbook = ['defaults',
-        'tasks',
-        '{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/playbook.yml']
+                               'tasks',
+                               '{{cookiecutter.molecule_directory}}/'
+                               '{{cookiecutter.scenario_name}}/playbook.yml']
 paths_to_delete_if_role = ['group_vars',
-        'full.yml']
+                           'full.yml']
 
 if PROJECT_TYPE == 'role':
     paths_to_delete = paths_to_delete_if_role
@@ -19,15 +20,18 @@ else:
 
 if '{{cookiecutter.driver_name}}' != 'docker':
     paths_to_delete.extend([
-            '{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/Dockerfile.j2'])
+            '{{cookiecutter.molecule_directory}}/'
+            '{{cookiecutter.scenario_name}}/Dockerfile.j2'])
+
 
 def delete_resource(resource):
     if os.path.isfile(resource):
-        print "removing file: {}".format(resource)
+        print("removing file: {}".format(resource))
         os.remove(resource)
     elif os.path.isdir(resource):
-        print "removing directory: {}".format(resource)
+        print("removing directory: {}".format(resource))
         shutil.rmtree(resource)
+
 
 for path in paths_to_delete:
     delete_resource(path)
